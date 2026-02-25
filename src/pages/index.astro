@@ -1,17 +1,32 @@
 ---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/astro/Hero.astro'
+import ProjectGrid from '../components/svelte/ProjectGrid.svelte'
+import Experience from '../components/svelte/Experience.svelte'
+import Services from '../components/svelte/ServiceScope.svelte'
+import CTA from '../components/svelte/CTA.svelte'
 
+const projectEntry = await getEntry('projects', 'home');
+const projects = projectEntry ? projectEntry.data.featured : [];
+
+const expEntry = await getEntry('experience', 'home');
+const expData = expEntry ? expEntry.data : null;
+
+const ctaEntry = await getEntry('cta', 'home');
+const ctaData = ctaEntry ? ctaEntry.data : null;
+const servicesData = await getEntry('services', 'home')
+const servicesList = servicesData ? servicesData.data.services : [];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home | My Portfolio">
+  <Hero />
+
+  <ProjectGrid projects={projects} client:visible />
+
+  <Experience data={expData} client:visible />
+  
+  <Services services={servicesList} client:visible />
+
+  <CTA data={ctaData} client:visible /> 
+</Layout>

@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import ProjectGallery from '../components/svelte/ProjectGallery.svelte';
+
+const projectEntry = await getEntry('projects', 'home');
+const projects = projectEntry ? projectEntry.data.featured : [];
+---
+
+<Layout title="Projects | Luis">
+  <div class="relative min-h-screen">
+    <div class="absolute top-0 -left-4 w-72 h-72 bg-slate-200/20 dark:bg-slate-800/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-4 relative z-10">
+      <ProjectGallery projects={projects} client:load />
+    </div>
+  </div>
+</Layout>

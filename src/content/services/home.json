@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "title": "Full-Stack Applications",
+      "highlight": "Engineered for scale.",
+      "bio": "Building high-concurrency platforms with Go backends and Svelte frontends. I specialize in bridging complex business logic with fast, SEO-dominant architecture."
+    },
+    {
+      "title": "Workflow Automation",
+      "highlight": "Systems transformation.",
+      "bio": "Eliminating manual bottlenecks by architecting custom digital intake pipelines and automated API-driven data flows."
+    },
+    {
+      "title": "Technical Strategy",
+      "highlight": "Legacy Integration.",
+      "bio": "Modernizing outdated infrastructure by integrating modern tech stacks with legacy business systems to ensure long-term stability."
+    }
+  ]
+}

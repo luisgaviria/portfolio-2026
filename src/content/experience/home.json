@@ -1,0 +1,13 @@
+{
+  "philosophy": {
+    "title": "Architecture First.",
+    "highlight": "Scalability Always.",
+    "bio": "I translate deep domain expertise into type-safe, robust code. I don't just build features; I build systems designed for long-term operational efficiency."
+  },
+  "stack": "Go / SvelteKit / Astro / Drupal (Headless)",
+  "focus": [
+    "High-Performance Go Backends",
+    "Event-Driven Workflow Automation",
+    "Legacy System Integration"
+  ]
+}

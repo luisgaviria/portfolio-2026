@@ -1,0 +1,13 @@
+---
+export let title = "Senior Full-Stack Engineer | Prop-Tech Specialist";
+export let description = "Senior Developer specializing in Go, Svelte, and Real Estate technology. 20 years of industry domain expertise.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />

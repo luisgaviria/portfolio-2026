@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const info = {
+  name: "Luis Gaviria",
+  role: "Senior Software Engineer & Domain Expert",
+  location: "Boston, MA",
+  phone: "508-762-7639",
+  email: "Luis.aptx@gmail.com",
+  linkedin: "linkedin.com/in/luisfgaviria",
+  github: "github.com/luisgaviria",
+};
+
+const experience = [
+  {
+    company: "Riverbed",
+    role: "Web Developer",
+    period: "2022 — 2026",
+    metrics: ["$200k+ Annual Savings", "40% QA Efficiency", "A+ Security Rating"],
+    achievements: [
+      "Architected a full-scale CMS migration from WordPress to Drupal, overseeing end-to-end data integrity and resulting in enhanced system security headers (A+ rating).",
+      "Eliminated $200k+ in annual operational overhead by insourcing web development and engineering custom technical solutions in-house.",
+      "Automated lead-capture and QA pipelines using Marketo and Cypress, cutting manual testing time by 40% and ensuring 100% UTM tracking accuracy.",
+      "Developed a modular component library and custom Schema Markup plugins using Node.js and React to streamline global SEO deployments.",
+      "Spearheaded performance optimization strategies via Lighthouse and Google Search Console to maintain top-tier Core Web Vitals."
+    ]
+  },
+  {
+    company: "Aternity",
+    role: "Web Development Intern",
+    period: "2021 — 2022",
+    metrics: ["Lead-Gen Optimized", "Global Multi-lang"],
+    achievements: [
+      "Engineered high-conversion landing pages and interactive components using PHP, Twig, and SCSS for paid global marketing campaigns.",
+      "Integrated complex Marketo and Drift workflows to modernize lead capture capabilities and form tracking infrastructure.",
+      "Hardened site security and performance by executing a comprehensive CMS audit, core updates, and outdated plugin elimination.",
+      "Developed custom ACF (Advanced Custom Fields) blades to enable modular page styling and flexible content organization for marketing teams."
+    ]
+  },
+  {
+    company: "Angles Realty, LP",
+    role: "Managing Partner (Technical Operations)",
+    period: "2013 — 2020",
+    metrics: ["Platform Founder", "Full-Stack Lead"],
+    achievements: [
+      "Engineered the firm's proprietary digital infrastructure, focusing on automated lead generation and full-stack web platforms.",
+      "Leveraged 20 years of real estate domain expertise to translate complex business logic into scalable technical workflows.",
+      "Directed end-to-end technical strategy, including financial planning and the implementation of digital operational tools."
+    ]
+  }
+];
+
+const education = [
+  {
+    school: "Launch Academy",
+    program: "Apprentice Full Stack Software Developer",
+    location: "Boston, MA",
+    details: "Immersive program focused on JavaScript, Node.js, React, and SQL fundamentals."
+  },
+  {
+    school: "Taller de Músics",
+    program: "Music Performance",
+    location: "Barcelona, Spain",
+    details: "Mastery of complex musical systems and performance theory."
+  }
+];
+
+const skillGroups = [
+  { label: "Technical Languages", items: ["JavaScript", "TypeScript", "Golang", "Python", "PHP", "SQL"] },
+  { label: "Architecture", items: ["Svelte", "Astro", "Node.js", "React", "Next.js"] },
+  { label: "Infrastructure", items: ["Docker", "Cypress", "Vercel", "Drupal", "Lighthouse"] }
+];
+---
+
+<Layout title={`${info.name} | Senior Software Engineer`}>
+    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-32 print:py-0">
+      
+      <header class="mb-32 mt-12">
+        <h1 class="text-7xl md:text-[10rem] font-black tracking-tighter text-slate-950 dark:text-white mb-8 leading-[0.8] uppercase select-none">
+          {info.name.split(' ')[0]}<br/>
+          <span class="text-transparent stroke-text">{info.name.split(' ')[1]}</span>
+        </h1>
+        
+        <div class="grid lg:grid-cols-2 gap-12 items-start border-t border-slate-200 dark:border-zinc-800 pt-12">
+            <div>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-4 py-1.5 bg-slate-950 dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-widest rounded-md">
+                        {info.role}
+                    </span>
+                </div>
+                <p class="text-2xl md:text-3xl text-slate-900 dark:text-white font-medium leading-tight tracking-tight max-w-xl">
+                    <span class="font-bold underline decoration-slate-400 underline-offset-4">Full-stack engineer</span> specializing in CMS architecture and automated QA. 
+                    Proven expert at building <span class="italic text-slate-500 dark:text-zinc-400">high-efficiency web platforms</span> that drive operational savings.
+                </p>
+            </div>
+            <div class="flex flex-col gap-4 lg:items-end text-xl font-bold">
+                <a href={`mailto:${info.email}`} class="text-slate-950 dark:text-white hover:opacity-70 transition-opacity underline underline-offset-8 decoration-slate-200 dark:decoration-white/10">{info.email}</a>
+                <div class="flex gap-8 text-xs font-black uppercase tracking-[0.2em] text-slate-950 dark:text-white mt-2">
+                    <a href={`https://${info.linkedin}`} target="_blank" class="hover:underline decoration-2 underline-offset-4 transition-all">LinkedIn</a>
+                    <a href={`https://${info.github}`} target="_blank" class="hover:underline decoration-2 underline-offset-4 transition-all">GitHub</a>
+                </div>
+            </div>
+        </div>
+      </header>
+
+      <section class="mb-32 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {skillGroups.map(group => (
+          <div class="p-8 bg-white dark:bg-[#0a0a0a] border border-slate-200/60 dark:border-white/5 rounded-xl flex flex-col items-center text-center shadow-sm transition-all duration-500">
+            <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-8 border-b border-slate-100 dark:border-zinc-800 pb-2 w-full">{group.label}</h4>
+            <div class="flex flex-wrap justify-center gap-x-4 gap-y-3">
+              {group.items.map(item => (
+                <span class="text-lg font-bold text-slate-950 dark:text-white">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="space-y-40 mb-40">
+        {experience.map(job => (
+          <div class="grid lg:grid-cols-4 gap-12 relative group">
+            <div class="lg:sticky lg:top-32 h-fit">
+                <div class="text-[10px] font-black text-slate-400 dark:text-zinc-600 uppercase tracking-[0.4em] mb-4">{job.period}</div>
+                <div class="flex flex-col gap-2">
+                    {job.metrics.map(metric => (
+                        <span class="text-[11px] md:text-xs w-fit px-4 py-1.5 bg-slate-100 dark:bg-zinc-900 text-slate-900 dark:text-white font-black uppercase tracking-wider border border-slate-200 dark:border-zinc-800 rounded-lg shadow-sm">
+                            {metric}
+                        </span>
+                    ))}
+                </div>
+            </div>
+            <div class="lg:col-span-3">
+              <div class="mb-12">
+                <h3 class="text-5xl md:text-7xl font-black text-slate-950 dark:text-white uppercase tracking-tighter mb-2 leading-none">{job.company}</h3>
+                <p class="text-xl font-bold text-slate-900 dark:text-zinc-300 tracking-tight">{job.role}</p>
+              </div>
+              <ul class="grid gap-8">
+                {job.achievements.map(item => (
+                  <li class="flex gap-6 text-xl leading-snug text-slate-950 dark:text-white transition-colors duration-300">
+                    <span class="text-slate-300 dark:text-zinc-700 font-black mt-1 group-hover:text-slate-950 dark:group-hover:text-white transition-colors duration-500">»</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="grid lg:grid-cols-4 gap-12 border-t border-slate-200 dark:border-zinc-800 pt-24 mb-40">
+        <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 dark:text-zinc-400">Education</h2>
+        <div class="lg:col-span-3 grid md:grid-cols-2 gap-12">
+            {education.map(edu => (
+                <div>
+                    <h4 class="text-2xl font-black text-slate-950 dark:text-white uppercase tracking-tight mb-1">{edu.school}</h4>
+                    <p class="text-xs font-black text-slate-600 dark:text-zinc-300 uppercase tracking-widest mb-4">{edu.program} // {edu.location}</p>
+                    <p class="text-lg text-slate-900 dark:text-white/80 leading-snug font-medium">{edu.details}</p>
+                </div>
+            ))}
+        </div>
+      </section>
+
+      <footer class="mt-40 pt-12 border-t border-slate-200 dark:border-white/5 flex justify-between items-center print:hidden">
+        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-zinc-600">{info.name} // Portfolio Index 2026</p>
+        <button onclick="window.print()" class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-950 dark:text-white hover:opacity-50 transition-all underline decoration-slate-200 underline-offset-8 decoration-2">
+          Export Document
+        </button>
+      </footer>
+    </div>
+</Layout>

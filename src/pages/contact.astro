@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/svelte/ContactForm.svelte';
+---
+
+<Layout title="Contact | Luis">
+
+ 
+    <div class="lg:col-span-7">
+      <ContactForm client:load />
+    </div>
+
+</Layout>

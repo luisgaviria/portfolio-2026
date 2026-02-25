@@ -1,0 +1,18 @@
+{
+  "featured": [
+    {
+      "title": "Harmony Homes",
+      "url": "https://bostonharmonyhomes.com",
+      "desc": "Architected a high-concurrency MLS data engine. Optimized search performance and data hydration workflows using Prisma and real-time API polling.",
+      "tech": ["Next.js", "Prisma", "PostgreSQL", "Zillow API"],
+      "role": "Lead Systems Architect"
+    },
+    {
+      "title": "Harwood Houses",
+      "url": "https://harwoodhouses.com",
+      "desc": "Led the digital overhaul of recovery housing operations. Replaced manual bottlenecks with a reactive Svelte application, ensuring high data integrity and automated intake.",
+      "tech": ["SvelteKit", "Tailwind CSS", "Go", "PostgreSQL"],
+      "role": "Senior Full-Stack Developer"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Senior Touch: Typography & Base Styles */
+@layer base {
+  body {
+    @apply antialiased text-slate-900 bg-slate-50;
+    font-family: "Inter", sans-serif;
+  }
+}
