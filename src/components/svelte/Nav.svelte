@@ -44,10 +44,15 @@
               border border-white/20 dark:border-white/10 
               shadow-xl shadow-black/5 rounded-2xl transition-all duration-500">
     
-    <a href="/" class="z-[220] flex items-center gap-2 group">
-      <div class="w-8 h-8 bg-slate-900 dark:bg-white rounded-lg flex items-center justify-center text-white dark:text-slate-900 font-bold text-xs transition-all group-hover:rotate-6">D</div>
-      <span class="font-bold text-slate-900 dark:text-white tracking-tighter text-sm uppercase hidden xs:block">DevPort</span>
-    </a>
+              <a href="/" class="z-[220] flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-slate-900 dark:bg-white rounded-lg flex items-center justify-center text-white dark:text-slate-900 font-bold text-xs transition-all group-hover:rotate-6">
+                  L
+                </div>
+                
+                <span class="font-bold text-slate-900 dark:text-white tracking-tighter text-sm uppercase hidden xs:block">
+                  LUIS
+                </span>
+              </a>
 
     <div class="hidden md:flex items-center gap-1">
       {#each links as link}

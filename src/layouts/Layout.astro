@@ -30,6 +30,26 @@ const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
       setDarkMode();
       document.addEventListener('astro:after-swap', setDarkMode);
     </script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Luis Gaviria",
+				"jobTitle": "Senior Developer",
+				"description": "Expert in high-scale real estate systems and backend engineering with 20 years of industry experience.",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Boston",
+					"addressRegion": "MA"
+				},
+				"url": "https://your-portfolio.com",
+				"sameAs": [
+					"https://github.com/luisgaviria",
+					"https://linkedin.com/in/your-profile"
+				],
+				"knowsAbout": ["Backend Engineering", "Real Estate Systems", "Svelte", "Astro", "Go", "Real Estate Rentals"]
+			}
+		</script>
   </head>
   
   <body class="bg-[#fafafa] dark:bg-[#050505] text-slate-950 dark:text-white font-['Inter',sans-serif] selection:bg-slate-900 selection:text-white antialiased transition-colors duration-500">
