@@ -122,11 +122,11 @@
           </div>
           <div>
             <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Direct Email</p>
-            <p class="text-sm font-bold">hello@luis.com</p>
+            <p class="text-sm font-bold">luis.aptx@gmail.com</p>
           </div>
           <div class="hidden md:block">
             <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Status</p>
-            <p class="text-sm font-bold">Medellín / Boston</p>
+            <p class="text-sm font-bold">Available</p>
           </div>
         </footer>
       {/if}

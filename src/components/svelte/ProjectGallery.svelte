@@ -57,11 +57,12 @@
       in:fade={{ duration: 400 }} 
       out:fade={{ duration: 300 }}
     >
-      <Hero 
-        title="Selected"
-        highlight="Software Projects"
-        bio="A gallery of full-stack applications and automated systems engineered for performance."
-      />
+    <Hero 
+    title="Selected"
+    highlight="Software Projects"
+    bio="A gallery of full-stack applications and automated systems engineered for performance."
+    showCTA={false} 
+    />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-100 dark:border-slate-900 pt-20">
         {#each projects as project}

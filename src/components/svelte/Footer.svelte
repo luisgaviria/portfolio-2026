@@ -1,10 +1,10 @@
 <script>
   const year = new Date().getFullYear();
   const links = [
-    { name: "LinkedIn", url: "#" },
-    { name: "GitHub", url: "#" },
-    { name: "WhatsApp", url: "#" },
-    { name: "Email", url: "mailto:hello@example.com" }
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/luisfgaviria/" },
+    { name: "GitHub", url: "https://github.com/luisgaviria/" },
+    { name: "WhatsApp", url: "+1 508-762-7639" },
+    { name: "Email", url: "mailto:luis.aptx@gmail.com" }
   ];
 </script>
 

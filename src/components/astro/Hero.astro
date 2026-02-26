@@ -1,8 +1,23 @@
 ---
 import { getEntry } from 'astro:content';
 
+// 1. Destructure props. 
+// We add 'showCTA' which we can set to false on any page to hide the main button.
+const { 
+  title: propTitle, 
+  highlight: propHighlight, 
+  bio: propBio, 
+  showCTA = true 
+} = Astro.props;
+
+// 2. Load the default Home data
 const heroData = await getEntry('hero', 'home');
 const { title, highlight, bio, ctaPrimary } = heroData.data;
+
+// 3. Logic: Use passed-in props if they exist, otherwise fallback to Home data
+const displayTitle = propTitle || title;
+const displayHighlight = propHighlight || highlight;
+const displayBio = propBio || bio;
 ---
 
 <section class="relative pt-24 pb-16 md:pt-24 md:pb-24 overflow-hidden">
@@ -10,20 +25,22 @@ const { title, highlight, bio, ctaPrimary } = heroData.data;
   
   <div class="relative z-10">
     <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
-      {title} <br />
+      {displayTitle} <br />
       <span class="text-slate-500 dark:text-slate-400">
-        {highlight}
+        {displayHighlight}
       </span>
     </h1>
     
     <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed">
-      {bio}
+      {displayBio}
     </p>
 
     <div class="flex flex-wrap gap-4">
-      <a href={ctaPrimary.link} class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold rounded-xl hover:bg-slate-700 dark:hover:bg-slate-200 transition-all shadow-lg shadow-slate-200 dark:shadow-none">
-        {ctaPrimary.text}
-      </a>
+      {showCTA && ctaPrimary && (
+        <a href={ctaPrimary.link} class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold rounded-xl hover:bg-slate-700 dark:hover:bg-slate-200 transition-all shadow-lg shadow-slate-200 dark:shadow-none">
+          {ctaPrimary.text}
+        </a>
+      )}
       
       <a href="/contact" class="px-8 py-4 bg-white dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 font-bold rounded-xl border border-slate-200 dark:border-slate-800 backdrop-blur-sm hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all">
         Get In Touch
