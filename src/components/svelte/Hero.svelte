@@ -18,11 +18,9 @@
     </p>
 
     <div class="flex flex-wrap gap-4">
-      <a href="#grid" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold rounded-xl hover:bg-slate-700 dark:hover:bg-slate-200 transition-all shadow-lg shadow-slate-200 dark:shadow-none">
-        Explore Work
-      </a>
+    
       
-      <a href="/contact" class="px-8 py-4 bg-white dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 font-bold rounded-xl border border-slate-200 dark:border-slate-800 backdrop-blur-sm hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all">
+      <a href="/contact" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold rounded-xl hover:bg-slate-700 dark:hover:bg-slate-200 transition-all shadow-lg shadow-slate-200 dark:shadow-none">
         Get In Touch
       </a>
     </div>

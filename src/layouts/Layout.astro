@@ -1,4 +1,6 @@
 ---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/700.css';
 const currentPath = Astro.url.pathname;
 import '../styles/global.css';
 import Nav from '../components/svelte/Nav.svelte';
@@ -20,7 +22,6 @@ const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script is:inline>
       const setDarkMode = () => {

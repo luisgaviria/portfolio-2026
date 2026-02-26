@@ -1,10 +1,10 @@
 {
   "id": "home",
   "title": "Senior Full-Stack Engineer",
-  "highlight": "Prop-Tech & Fin-Tech Architecture",
-  "bio": "Bridging two decades of real estate expertise with modern software engineering. I build scalable, high-concurrency systems using Go and Svelte, specializing in translating complex industry logic into performant code.",
+  "highlight": "Full-Stack Architecture & System Design",
+  "bio": "Leveraging deep technical expertise to build performant, data-driven applications. Focused on scalability, system efficiency, and translating complex domain logic into elegant software solutions.",
   "ctaPrimary": {
-    "text": "View Technical Portfolio",
-    "link": "#work"
+    "text": "View Technical Work",
+    "link": "/projects"
   }
 }

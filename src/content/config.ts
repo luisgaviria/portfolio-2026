@@ -20,7 +20,7 @@ const projects = defineCollection({
     featured: z.array(
       z.object({
         title: z.string(),
-        url: z.string().url(),
+        url: z.string(),
         desc: z.string(),
         tech: z.array(z.string()),
         role: z.string(),

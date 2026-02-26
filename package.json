@@ -12,6 +12,7 @@
     "@astrojs/svelte": "^7.0.0",
     "@astrojs/tailwind": "6.0.2",
     "@astrojs/vercel": "^9.0.4",
+    "@fontsource/inter": "^5.2.8",
     "astro": "^5.0.0",
     "resend": "^6.9.2",
     "svelte": "^5.0.0",
