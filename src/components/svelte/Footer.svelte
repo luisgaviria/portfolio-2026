@@ -13,10 +13,10 @@
     
     <div class="flex flex-col gap-1">
       <div class="text-sm font-extrabold tracking-tight text-slate-900 dark:text-white">
-        DevPort <span class="text-slate-400 dark:text-slate-600">/ 2026</span>
+        luisgaviria <span class="text-slate-400 dark:text-slate-600">.dev</span>
       </div>
       <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-        © {year} All Rights Reserved
+        © {year} Logic & Pixels
       </p>
     </div>
 

@@ -50,7 +50,9 @@
         <div class="space-y-8">
           <div>
             <p class="text-[10px] font-black uppercase tracking-[0.3em] opacity-50 mb-3">Professional Edge</p>
-            <p class="text-lg font-bold leading-tight">20 years in real estate systems, now engineering high-scale backends.</p>
+<p class="text-lg font-bold leading-tight">
+  20 years of operational logic, now engineering high-performance systems.
+</p>
           </div>
           
           <div class="flex items-center gap-4 p-4 bg-white/10 dark:bg-slate-900/5 rounded-2xl border border-white/10 dark:border-slate-900/10">
