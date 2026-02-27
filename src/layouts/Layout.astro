@@ -19,13 +19,21 @@ const {
 } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <ClientRouter />
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     
+    <link 
+      rel="preload" 
+      href="/_astro/inter-latin-400-normal.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin="anonymous" 
+    />
+
     <title>{title}</title>
     <meta name="description" content={description} />
 
@@ -38,6 +46,7 @@ const {
       const setDarkMode = () => {
         const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
+        document.documentElement.style.colorScheme = theme;
       };
       setDarkMode();
       document.addEventListener('astro:after-swap', setDarkMode);
@@ -49,28 +58,18 @@ const {
         "@type": "Person",
         "name": "Luis Gaviria",
         "jobTitle": "Senior Software Engineer",
-        "description": "Senior Developer specializing in translating complex business operations into high-performance software systems.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Boston",
-          "addressRegion": "MA"
-        },
         "url": "https://luisgaviria.dev",
-        "sameAs": [
-          "https://github.com/luisgaviria",
-          "https://www.linkedin.com/in/luisfgaviria/"
-        ],
-        "knowsAbout": ["Backend Engineering", "Systems Architecture", "Svelte", "Astro", "Go", "Operational Logic"]
+        "knowsAbout": ["Backend Engineering", "Systems Architecture", "Svelte", "Astro", "Go", "Real Estate Technology"]
       }
     </script>
   </head>
   
-  <body class="bg-[#fafafa] dark:bg-[#050505] text-slate-950 dark:text-white font-['Inter',sans-serif] selection:bg-slate-900 selection:text-white antialiased transition-colors duration-500">
+  <body class="bg-[#fafafa] dark:bg-[#050505] text-slate-950 dark:text-white font-['Inter',sans-serif] selection:bg-slate-900 selection:text-white antialiased">
     
     <Nav client:load currentPath={currentPath} />
     
-    <div class="flex flex-col min-h-screen">
-      <main class="flex-grow max-w-6xl mx-auto px-6 pt-24 pb-16 lg:pt-28">
+    <div class="flex flex-col min-h-dvh">
+      <main class="flex-grow max-w-6xl mx-auto px-6 pt-24 pb-16 lg:pt-32 w-full">
         <slot />
       </main>
 
@@ -78,13 +77,30 @@ const {
     </div>
 
     <style is:global>
+      /* FIX: Prevent layout shift when scrollbar appears */
+      html {
+        scrollbar-gutter: stable;
+      }
+
+      /* Global Typography Polish */
+      body {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
       .stroke-text { 
-        -webkit-text-stroke: 2px #111827; 
+        -webkit-text-stroke: 1.5px #111827; 
         color: transparent;
       }
       
       .dark .stroke-text { 
-        -webkit-text-stroke: 2px #3f3f46; 
+        -webkit-text-stroke: 1.5px #f4f4f5; 
+      }
+
+      /* Transitions: Ensure no jarring content jumps */
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.4s;
       }
 
       @media print {
@@ -96,7 +112,7 @@ const {
           display: none !important; 
         }
         body { background-color: white !important; color: black !important; }
-        main { padding: 0 !important; max-width: 100% !important; }
+        main { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
       }
     </style>
   </body>
