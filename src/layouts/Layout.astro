@@ -1,17 +1,22 @@
 ---
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/700.css';
-const currentPath = Astro.url.pathname;
 import '../styles/global.css';
 import Nav from '../components/svelte/Nav.svelte';
 import Footer from '../components/svelte/Footer.svelte'; 
 import { ClientRouter } from 'astro:transitions';
 
+const currentPath = Astro.url.pathname;
+
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
+const { 
+  title = "Luis Gaviria | Senior Software Engineer",
+  description = "Senior Developer bridging 20 years of professional operations with high-performance software engineering. Expert in systems architecture and backend logic."
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -20,8 +25,14 @@ const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
+    
     <title>{title}</title>
+    <meta name="description" content={description} />
 
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url} />
 
     <script is:inline>
       const setDarkMode = () => {
@@ -31,26 +42,27 @@ const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
       setDarkMode();
       document.addEventListener('astro:after-swap', setDarkMode);
     </script>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Person",
-				"name": "Luis Gaviria",
-				"jobTitle": "Senior Developer",
-				"description": "Expert in high-scale real estate systems and backend engineering with 20 years of industry experience.",
-				"address": {
-					"@type": "PostalAddress",
-					"addressLocality": "Boston",
-					"addressRegion": "MA"
-				},
-				"url": "https://your-portfolio.com",
-				"sameAs": [
-					"https://github.com/luisgaviria",
-					"https://linkedin.com/in/your-profile"
-				],
-				"knowsAbout": ["Backend Engineering", "Real Estate Systems", "Svelte", "Astro", "Go", "Real Estate Rentals"]
-			}
-		</script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Luis Gaviria",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Senior Developer specializing in translating complex business operations into high-performance software systems.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Boston",
+          "addressRegion": "MA"
+        },
+        "url": "https://luisgaviria.dev",
+        "sameAs": [
+          "https://github.com/luisgaviria",
+          "https://www.linkedin.com/in/luisfgaviria/"
+        ],
+        "knowsAbout": ["Backend Engineering", "Systems Architecture", "Svelte", "Astro", "Go", "Operational Logic"]
+      }
+    </script>
   </head>
   
   <body class="bg-[#fafafa] dark:bg-[#050505] text-slate-950 dark:text-white font-['Inter',sans-serif] selection:bg-slate-900 selection:text-white antialiased transition-colors duration-500">
@@ -58,7 +70,7 @@ const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
     <Nav client:load currentPath={currentPath} />
     
     <div class="flex flex-col min-h-screen">
-      <main class="flex-grow max-w-6xl mx-auto px-6 pt-28 pb-20 lg:pt-28">
+      <main class="flex-grow max-w-6xl mx-auto px-6 pt-24 pb-16 lg:pt-28">
         <slot />
       </main>
 
@@ -84,7 +96,6 @@ const { title = "Luis Gaviria | Senior Software Engineer" } = Astro.props;
           display: none !important; 
         }
         body { background-color: white !important; color: black !important; }
-        /* Remove top padding for the PDF/Print version */
         main { padding: 0 !important; max-width: 100% !important; }
       }
     </style>
