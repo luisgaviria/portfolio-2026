@@ -11,13 +11,13 @@
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-slate-400 to-transparent opacity-30"></div>
 
       <div class="text-center">
-        <span class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 mb-6 md:mb-8 block">
+        <span class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block">
           {data.label}
         </span>
 
         <h2 class="text-3xl md:text-6xl font-extrabold tracking-tighter text-slate-900 dark:text-white mb-6 md:mb-8 leading-[1.1]">
           {data.title} <br class="hidden md:block" />
-          <span class="text-slate-500 italic font-medium">{data.highlight}</span>
+          <span class="text-slate-600 dark:text-slate-400 italic font-medium">{data.highlight}</span>
         </h2>
         
         <p class="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-10 md:mb-12 leading-relaxed">
@@ -31,7 +31,7 @@
           </a>
           
           <a href={data.secondaryBtn.link} 
-             class="w-full sm:w-auto px-10 py-4 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-center">
+             class="w-full sm:w-auto px-10 py-4 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-center">
             {data.secondaryBtn.text}
           </a>
         </div>
