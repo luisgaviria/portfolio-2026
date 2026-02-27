@@ -129,7 +129,7 @@
             <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Tech Stack</h4>
             <div class="flex flex-wrap gap-2">
               {#each selectedProject.tech as tag}
-                <span class="px-3 py-1 text-[10px] font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded border border-slate-200 dark:border-slate-700">
+                <span lass="px-3 py-1 text-[10px] font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded border border-slate-200 dark:border-slate-700">
                   {tag}
                 </span>
               {/each}
