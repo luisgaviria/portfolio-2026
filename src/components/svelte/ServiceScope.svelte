@@ -23,10 +23,10 @@
           <div>
             <a 
               href="/contact" 
-              aria-label="Learn more about {service.title}"
               class="inline-block px-8 py-3 bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 font-bold rounded-xl border border-slate-200 dark:border-slate-800 backdrop-blur-sm hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white transition-all text-xs uppercase tracking-widest"
             >
               Learn More
+              <span class="sr-only">about {service.title}</span>
             </a>
           </div>
         </div>
