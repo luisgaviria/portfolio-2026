@@ -21,48 +21,44 @@
   };
 
   async function openProject(event) {
-    if (isTransitioning) return;
     isTransitioning = true;
-    
-    // Smooth scroll before content swap to reduce jarring shifts
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
     setTimeout(() => {
       selectedProject = event.detail;
-      isTransitioning = false;
-    }, 400);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 50);
+    }, 300);
   }
 
   function close() {
-    if (isTransitioning) return;
     isTransitioning = true;
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
     setTimeout(() => {
       selectedProject = null;
-      isTransitioning = false;
-    }, 400);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 50);
+    }, 300);
   }
 </script>
 
-<div class="relative w-full min-h-screen">
-  
+<div class="relative w-full min-h-[80vh]">
   {#if isTransitioning}
     <div 
-      out:fade={{ duration: 200 }} 
+      out:fade={{ duration: 400 }} 
       class="fixed top-0 left-0 w-full h-1 bg-slate-900 dark:bg-white z-[200]"
     ></div>
   {/if}
 
   {#if !selectedProject}
     <div 
-      in:fade={{ duration: 400, delay: 200 }} 
+      in:fade={{ duration: 400 }} 
       out:fade={{ duration: 300 }}
-      class:opacity-0={isTransitioning}
+      class:opacity-30={isTransitioning}
       class="transition-opacity duration-300"
     >
-      <div class="min-h-[400px] md:min-h-[500px]">
+      <div class="min-h-[320px] md:min-h-[400px]">
         <Hero 
           title="Selected"
           highlight="Software Projects"
@@ -84,7 +80,7 @@
 
   {:else}
     <article 
-      in:fly={{ y: 20, duration: 600, delay: 200, easing: expoOut }} 
+      in:fly={{ y: 20, duration: 600, easing: expoOut }} 
       out:fade={{ duration: 300 }}
       class="max-w-5xl mx-auto pt-12 pb-32"
     >
@@ -133,7 +129,7 @@
             <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Tech Stack</h4>
             <div class="flex flex-wrap gap-2">
               {#each selectedProject.tech as tag}
-                <span class="px-3 py-1 text-[10px] font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded border border-slate-200 dark:border-slate-700">
+                <span lass="px-3 py-1 text-[10px] font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded border border-slate-200 dark:border-slate-700">
                   {tag}
                 </span>
               {/each}
