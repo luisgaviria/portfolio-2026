@@ -13,7 +13,7 @@
           Selected Projects
         </h2>
         <p class="text-3xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tighter leading-[1.1]">
-          Proven solutions for the <span class="text-slate-400 dark:text-slate-500">modern</span> market.
+          Proven solutions for the <span class="text-slate-500 dark:text-slate-500">modern</span> market.
         </p>
       </div>
     </div>
