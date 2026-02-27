@@ -11,14 +11,13 @@
   let selectedProject = null;
   let isTransitioning = false;
 
-  // Data for your reused CTA component
   const ctaData = {
     label: "Available for Projects",
     title: "Let's build the",
     highlight: "next system.",
     description: "Ready to bridge the gap between business logic and high-performance software? Whether it's a real estate platform or a Go-based backend, let's talk.",
     primaryBtn: { text: "Get in Touch", link: "/contact" },
-    secondaryBtn: { text: "View GitHub", link: "https://github.com" }
+    secondaryBtn: { text: "View GitHub", link: "https://github.com/luisgaviria" }
   };
 
   async function openProject(event) {
@@ -52,17 +51,21 @@
     ></div>
   {/if}
 
-  {#if !selectedProject && !isTransitioning}
+  {#if !selectedProject}
     <div 
       in:fade={{ duration: 400 }} 
       out:fade={{ duration: 300 }}
+      class:opacity-30={isTransitioning}
+      class="transition-opacity duration-300"
     >
-    <Hero 
-    title="Selected"
-    highlight="Software Projects"
-    bio="A gallery of full-stack applications and automated systems engineered for performance."
-    showCTA={false} 
-    />
+      <div class="min-h-[320px] md:min-h-[400px]">
+        <Hero 
+          title="Selected"
+          highlight="Software Projects"
+          bio="A gallery of full-stack applications and automated systems engineered for performance."
+          showCTA={false} 
+        />
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-100 dark:border-slate-900 pt-20">
         {#each projects as project}
@@ -75,9 +78,9 @@
       <CTA data={ctaData} /> 
     </div>
 
-  {:else if selectedProject && !isTransitioning}
+  {:else}
     <article 
-      in:fly={{ y: 40, duration: 800, easing: expoOut }} 
+      in:fly={{ y: 20, duration: 600, easing: expoOut }} 
       out:fade={{ duration: 300 }}
       class="max-w-5xl mx-auto pt-12 pb-32"
     >
@@ -89,7 +92,7 @@
           <span class="group-hover:-translate-x-1 transition-transform">←</span> Back to Gallery
         </button>
         <div class="hidden md:block h-px flex-grow mx-8 bg-slate-200 dark:bg-slate-800"></div>
-        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 italic">Project Detail</span>
+        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 italic">Project Detail</span>
       </div>
 
       <header class="mb-20">
@@ -111,11 +114,11 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
             <div class="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-slate-200 dark:border-slate-800">
-              <h4 class="font-black uppercase tracking-widest text-xs text-slate-400 mb-4">Architecture</h4>
+              <h4 class="font-black uppercase tracking-widest text-[10px] text-slate-500 dark:text-slate-400 mb-4">Architecture</h4>
               <p class="text-slate-900 dark:text-white font-bold">Built for scale with {selectedProject.tech[0]} and {selectedProject.tech[1] || 'modern patterns'}.</p>
             </div>
             <div class="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-slate-200 dark:border-slate-800">
-              <h4 class="font-black uppercase tracking-widest text-xs text-slate-400 mb-4">Focus</h4>
+              <h4 class="font-black uppercase tracking-widest text-[10px] text-slate-500 dark:text-slate-400 mb-4">Focus</h4>
               <p class="text-slate-900 dark:text-white font-bold">Performance-first indexing and responsive UI/UX design.</p>
             </div>
           </div>
@@ -123,10 +126,10 @@
 
         <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit space-y-12">
           <div class="space-y-6">
-            <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Tech Stack</h4>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Tech Stack</h4>
             <div class="flex flex-wrap gap-2">
               {#each selectedProject.tech as tag}
-                <span class="px-3 py-1 text-[10px] font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded border border-slate-200 dark:border-slate-700">
+                <span class="px-3 py-1 text-[10px] font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded border border-slate-200 dark:border-slate-700">
                   {tag}
                 </span>
               {/each}
