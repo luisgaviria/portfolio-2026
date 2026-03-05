@@ -19,7 +19,7 @@
 
   const links = [
     { name: 'Projects', href: '/projects' },
-    { name: 'Resume', href: '/resume' },
+    // { name: 'Resume', href: '/resume' },
     // { name: 'Insights', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
