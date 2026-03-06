@@ -26,14 +26,6 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     
-    <!-- <link 
-      rel="preload" 
-      href="/_astro/inter-latin-400-normal.woff2" 
-      as="font" 
-      type="font/woff2" 
-      crossorigin="anonymous" 
-    /> -->
-
     <title>{title}</title>
     <meta name="description" content={description} />
 
@@ -49,8 +41,11 @@ const {
         document.documentElement.style.colorScheme = theme;
       };
       setDarkMode();
+      // Ensures dark mode persists between transitions
       document.addEventListener('astro:after-swap', setDarkMode);
     </script>
+
+    
 
     <script type="application/ld+json">
       {
@@ -66,6 +61,8 @@ const {
   
   <body class="bg-[#fafafa] dark:bg-[#050505] text-slate-950 dark:text-white font-['Inter',sans-serif] selection:bg-slate-900 selection:text-white antialiased">
     
+    <div id="progress-bar" class="fixed top-0 left-0 h-[2px] bg-slate-900 dark:bg-white z-[9999] w-0 transition-all duration-300 ease-out pointer-events-none"></div>
+
     <Nav client:load currentPath={currentPath} />
     
     <div class="flex flex-col min-h-dvh">
@@ -76,13 +73,27 @@ const {
       <Footer client:visible /> 
     </div>
 
+    <script>
+      // Navigation Progress Bar Logic
+      document.addEventListener('astro:before-preparation', () => {
+        const bar = document.getElementById('progress-bar');
+        if (bar) bar.style.width = '30%';
+      });
+
+      document.addEventListener('astro:after-preparation', () => {
+        const bar = document.getElementById('progress-bar');
+        if (bar) bar.style.width = '100%';
+        setTimeout(() => {
+          if (bar) bar.style.width = '0%';
+        }, 400);
+      });
+    </script>
+
     <style is:global>
-      /* FIX: Prevent layout shift when scrollbar appears */
       html {
         scrollbar-gutter: stable;
       }
 
-      /* Global Typography Polish */
       body {
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -97,10 +108,11 @@ const {
         -webkit-text-stroke: 1.5px #f4f4f5; 
       }
 
-      /* Transitions: Ensure no jarring content jumps */
+      /* Refined View Transition Timing */
       ::view-transition-old(root),
       ::view-transition-new(root) {
-        animation-duration: 0.4s;
+        animation-duration: 0.3s;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       @media print {

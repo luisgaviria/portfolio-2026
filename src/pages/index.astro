@@ -2,7 +2,7 @@
 import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/astro/Hero.astro'
-import ProjectGrid from '../components/svelte/ProjectGrid.svelte'
+import ProjectGrid from '../components/svelte/ProjectGrid.astro'
 import Experience from '../components/svelte/Experience.svelte'
 import Services from '../components/svelte/ServiceScope.svelte'
 import CTA from '../components/svelte/CTA.svelte'
@@ -22,7 +22,7 @@ const servicesList = servicesData ? servicesData.data.services : [];
 <Layout title="Home | My Portfolio">
   <Hero />
 
-  <ProjectGrid projects={projects} client:visible />
+  <ProjectGrid projects={projects} />
 
   <Experience data={expData} client:visible />
   

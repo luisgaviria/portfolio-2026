@@ -7,6 +7,7 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   integrations: [svelte(), tailwind()],
   adapter: vercel(),
+  trailingSlash: 'never',
   security: {
     checkOrigin: false,
   },
