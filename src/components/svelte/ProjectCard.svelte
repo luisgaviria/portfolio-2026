@@ -44,10 +44,10 @@
       View Project
     </a>
     
-    {#if project.github}
+    <!-- {#if project.github}
       <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-bold">
         Source Code →
       </a>
-    {/if}
+    {/if} -->
   </div>
 </div>

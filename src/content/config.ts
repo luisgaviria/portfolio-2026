@@ -13,14 +13,17 @@ const hero = defineCollection({
   }),
 });
 
-// Add this new section
+// Projects section
 const projects = defineCollection({
-  type: "data", // This tells Astro it's a JSON/YAML file
+  type: "data",
   schema: z.object({
     featured: z.array(
       z.object({
         title: z.string(),
         url: z.string(),
+        projectUrl: z.string().optional(),
+        github: z.string().optional(), // Added for source code links
+        metricsImage: z.string().optional(), // Added for the PageSpeed screenshot
         desc: z.string(),
         tech: z.array(z.string()),
         role: z.string(),

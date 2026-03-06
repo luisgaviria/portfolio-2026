@@ -4,12 +4,14 @@
   import TechExpertise from './TechExpertise.svelte'; 
   import ProContext from './ProContext.svelte';
   import CTA from './CTA.svelte';
-  import { fade, fly } from 'svelte/transition';
+  import { fade, fly, scale } from 'svelte/transition';
   import { expoOut } from 'svelte/easing';
+  import { onMount } from 'svelte'; // Added for keyboard listener
 
   export let projects = [];
   let selectedProject = null;
   let isTransitioning = false;
+  let showMetrics = false;
 
   const ctaData = {
     label: "Available for Projects",
@@ -19,6 +21,15 @@
     primaryBtn: { text: "Get in Touch", link: "/contact" },
     secondaryBtn: { text: "View GitHub", link: "https://github.com/luisgaviria" }
   };
+
+  // Keyboard listener to close overlay on ESC
+  onMount(() => {
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape' && showMetrics) toggleMetrics();
+    };
+    window.addEventListener('keydown', handleKeydown);
+    return () => window.removeEventListener('keydown', handleKeydown);
+  });
 
   async function openProject(event) {
     isTransitioning = true;
@@ -40,6 +51,15 @@
         isTransitioning = false;
       }, 50);
     }, 300);
+  }
+
+  function toggleMetrics() {
+    showMetrics = !showMetrics;
+    if (showMetrics) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 </script>
 
@@ -122,6 +142,32 @@
               <p class="text-slate-900 dark:text-white font-bold">Performance-first indexing and responsive UI/UX design.</p>
             </div>
           </div>
+
+          {#if selectedProject.metricsImage}
+            <div class="mt-16 space-y-6">
+              <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Vitals & Core Performance</h4>
+              
+              <button 
+                on:click={toggleMetrics}
+                class="relative w-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl group cursor-zoom-in"
+              >
+                <img 
+                  src={selectedProject.metricsImage} 
+                  alt="PageSpeed Insights Score" 
+                  class="w-full h-auto transition-all duration-700 group-hover:scale-[1.02]"
+                />
+                <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors flex items-center justify-center">
+                  <span class="opacity-0 group-hover:opacity-100 bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-white px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase transition-all shadow-lg border border-slate-100 dark:border-slate-800">
+                    Expand Metrics
+                  </span>
+                </div>
+              </button>
+              
+              <p class="text-sm text-slate-500 italic font-medium">
+                Verified PageSpeed Insights performance: 100/100 across all core web vitals.
+              </p>
+            </div>
+          {/if}
         </div>
 
         <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit space-y-12">
@@ -137,7 +183,7 @@
           </div>
 
           <div class="pt-8 border-t border-slate-100 dark:border-slate-800 space-y-4">
-            <a href={selectedProject.url} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-sm uppercase tracking-widest hover:bg-slate-700 dark:hover:bg-slate-200 transition-all">
+            <a href={selectedProject.projectUrl} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-sm uppercase tracking-widest hover:bg-slate-700 dark:hover:bg-slate-200 transition-all">
               Launch Project <span class="text-xl">↗</span>
             </a>
             {#if selectedProject.github}
@@ -150,4 +196,33 @@
       </div>
     </article>
   {/if}
+
+  {#if showMetrics && selectedProject}
+  <div 
+    class="fixed inset-0 z-[1000] flex items-center justify-center p-6 md:p-24"
+    transition:fade={{ duration: 200 }}
+  >
+    <button 
+      type="button"
+      class="absolute inset-0 bg-slate-950/70 backdrop-blur-md cursor-zoom-out w-full h-full border-none"
+      on:click={toggleMetrics}
+      aria-label="Close metrics overlay"
+    ></button>
+    
+    <div class="absolute top-12 left-1/2 -translate-x-1/2 text-white/40 text-[10px] font-black uppercase tracking-[0.5em] pointer-events-none">
+      Click anywhere or press Esc to minimize
+    </div>
+
+    <div 
+      class="relative max-w-5xl w-full rounded-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] border border-white/10"
+      transition:scale={{ start: 0.98, duration: 300, easing: expoOut }}
+    >
+      <img 
+        src={selectedProject.metricsImage} 
+        alt="Full Metrics Overlay" 
+        class="w-full h-auto block"
+      />
+    </div>
+  </div>
+{/if}
 </div>
