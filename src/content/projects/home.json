@@ -13,7 +13,7 @@
     {
       "title": "Harmony Homes",
       "url": "/projects",
-      "projectUrl": "https://www.harmonyhomes.com",
+      "projectUrl": "https://www.bostonharmonyhomes.com",
       "desc": "Architected a high-concurrency MLS data engine. Optimized search performance and data hydration workflows using Prisma and real-time API polling.",
       "tech": ["Next.js", "Prisma", "PostgreSQL", "BridgeAPI"],
       "role": "Lead Systems Architect"
