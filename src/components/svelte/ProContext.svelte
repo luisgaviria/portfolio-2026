@@ -15,13 +15,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
         <div>
           <h4 class="text-[12.5px] uppercase tracking-[0.2em] font-black text-slate-900 dark:text-white mb-3">Domain Expertise</h4>
-          <p class="text-[14.5px] text-slate-500 dark:text-slate-500 leading-relaxed">
-            Deep understanding of property management, commission structures, and lead-to-lease lifecycles.
+          <p class="text-[14.5px] text-slate-700 dark:text-slate-500 font-medium leading-relaxed max-w-sm">
+            Specialized in architecting high-performance web properties, enterprise-scale CMS migrations, and modern frontend systems.
           </p>
         </div>
         <div>
           <h4 class="text-[12.5px] uppercase tracking-[0.2em] font-black text-slate-900 dark:text-white mb-3">Technical Precision</h4>
-          <p class="text-[14.5px] text-slate-500 dark:text-slate-500 leading-relaxed">
+          <p class="text-[14.5px] text-slate-700 dark:text-slate-500 leading-relaxed">
             Leveraging Go for backend concurrency and Svelte for reactive, lightweight user interfaces.
           </p>
         </div>
