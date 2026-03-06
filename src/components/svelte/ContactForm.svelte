@@ -6,7 +6,6 @@
 
   async function handleSubmit(event) {
     status = 'sending';
-    
     const formData = new FormData(event.target);
 
     try {
@@ -28,111 +27,96 @@
     }
   }
 
-  const medellinTime = new Date().toLocaleTimeString('en-US', { 
-    timeZone: 'America/Bogota', 
+  const localTime = new Date().toLocaleTimeString('en-US', { 
+    timeZone: 'America/New_York', 
     hour: '2-digit', 
     minute: '2-digit' 
   });
 </script>
 
-<div class="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4 md:p-8">
-  <div class="max-w-6xl w-full bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 overflow-hidden flex flex-col lg:flex-row">
+<section class="min-h-screen bg-zinc-100 dark:bg-slate-950 flex items-center justify-center p-4 md:p-12 transition-colors duration-500">
+  <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
     
-    <aside class="lg:w-[400px] bg-slate-900 dark:bg-white p-10 md:p-14 text-white dark:text-slate-950 flex flex-col justify-between relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 dark:bg-black/5 rounded-full -mr-32 -mt-32"></div>
-
-      <div class="relative z-10 space-y-12">
-        <div class="space-y-4">
-          <h1 class="text-5xl font-black tracking-tighter leading-none">Let's <br/>Build.</h1>
-          <div class="h-1.5 w-12 bg-white/20 dark:bg-slate-900/20"></div>
-        </div>
-
-        <div class="space-y-8">
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.3em] opacity-50 mb-3">Professional Edge</p>
-<p class="text-lg font-bold leading-tight">
-  20 years of operational logic, now engineering high-performance systems.
-</p>
-          </div>
-          
-          <div class="flex items-center gap-4 p-4 bg-white/10 dark:bg-slate-900/5 rounded-2xl border border-white/10 dark:border-slate-900/10">
-            <div class="relative flex h-3 w-3">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </div>
-            <p class="text-xs font-black uppercase tracking-widest">Available for Q2 2026</p>
-          </div>
-        </div>
+    <aside class="lg:col-span-4 space-y-8 lg:space-y-10 lg:pt-10 px-2 lg:px-0">
+      <div class="space-y-6">
+        <h1 class="text-5xl md:text-6xl font-black tracking-tighter leading-tight text-slate-900 dark:text-white">
+          Let’s <span class="text-slate-500 dark:text-slate-400 italic font-medium">Build.</span>
+        </h1>
+        
+        <p class="text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-sm">
+          Senior Web Developer & Full-Stack Architect. 20 years of operational logic applied to high-performance systems.
+        </p>
       </div>
 
-      <div class="relative z-10 pt-12">
-        <div class="space-y-1">
-          <p class="text-[10px] font-black uppercase tracking-widest opacity-50">Current Location</p>
-          <p class="text-xl font-bold italic">Boston, MA — {medellinTime}</p>
-        </div>
+      <div class="space-y-1 pt-4 border-t border-slate-300 dark:border-slate-800 inline-block">
+        <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Current Base</p>
+        <p class="text-lg font-bold italic text-slate-900 dark:text-white uppercase text-nowrap">Boston, {localTime}</p>
       </div>
     </aside>
 
-    <main class="flex-grow p-10 md:p-16 flex flex-col justify-between">
-      {#if status === 'success'}
-        <div in:fly={{ y: 20, duration: 800, easing: expoOut }} class="h-full flex flex-col justify-center items-center text-center space-y-6">
-          <div class="w-20 h-20 bg-green-50 dark:bg-green-900/20 text-green-600 rounded-full flex items-center justify-center text-4xl">✓</div>
-          <h2 class="text-4xl font-black tracking-tighter">Transmission Received</h2>
-          <p class="text-slate-500 max-w-xs">Your data has been logged. I'll get back to you within 24 standard hours.</p>
-          <button on:click={() => status = 'idle'} class="text-xs font-black uppercase tracking-widest underline pt-4">Reset Form</button>
-        </div>
-      {:else}
-        <div class="space-y-10">
-          <header class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-8">
-            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-slate-400">System Inquiry Form</h3>
-            <span class="text-[10px] font-mono opacity-30">REF: CONTACT_v2.0</span>
-          </header>
-
-          <form on:submit|preventDefault={handleSubmit} class="space-y-8" in:fade>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Identification</label>
-                <input name="identification" required type="text" placeholder="Full Name" class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-transparent focus:border-slate-200 dark:focus:border-slate-700 outline-none font-bold transition-all" />
+    <main class="lg:col-span-8 w-full">
+      <div class="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-[2rem] p-6 md:p-12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] transition-all duration-300">
+        {#if status === 'success'}
+          <div in:fly={{ y: 20, duration: 800, easing: expoOut }} class="py-12 md:py-16 flex flex-col items-center text-center space-y-6">
+            <div class="w-16 h-16 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-full flex items-center justify-center text-2xl font-black">✓</div>
+            <h2 class="text-2xl font-black tracking-tight uppercase">Transmission Received</h2>
+            <p class="text-slate-500 dark:text-slate-400 max-w-xs text-sm">Your data has been logged. Response pending within 24 hours.</p>
+            <button on:click={() => status = 'idle'} class="text-[10px] font-black uppercase tracking-widest border-b-2 border-slate-900 dark:border-white pb-1 mt-4">Reset Form</button>
+          </div>
+        {:else}
+          <form on:submit|preventDefault={handleSubmit} class="space-y-10 md:space-y-12" in:fade>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-12">
+              <div class="group flex flex-col-reverse">
+                <input 
+                  id="name" name="identification" required type="text" placeholder="Full Name" 
+                  class="peer w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white py-2 outline-none font-bold text-lg transition-all placeholder:text-slate-600 dark:placeholder:text-slate-300" 
+                />
+                <label for="name" class="text-[10px] font-black uppercase tracking-widest text-slate-500 peer-focus:text-slate-900 dark:peer-focus:text-white transition-colors">Identification</label>
               </div>
-              <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Return Address</label>
-                <input name="return_address" required type="email" placeholder="Email@domain.com" class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-transparent focus:border-slate-200 dark:focus:border-slate-700 outline-none font-bold transition-all" />
+
+              <div class="group flex flex-col-reverse">
+                <input 
+                  id="email" name="return_address" required type="email" placeholder="email@domain.com" 
+                  class="peer w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white py-2 outline-none font-bold text-lg transition-all placeholder:text-slate-600 dark:placeholder:text-slate-300" 
+                />
+                <label for="email" class="text-[10px] font-black uppercase tracking-widest text-slate-500 peer-focus:text-slate-900 dark:peer-focus:text-white transition-colors">Return Path</label>
               </div>
             </div>
 
-            <div class="space-y-2">
-              <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Briefing</label>
-              <textarea name="briefing" required rows="4" placeholder="Tell me about your system requirements or business goals..." class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-transparent focus:border-slate-200 dark:focus:border-slate-700 outline-none font-bold transition-all resize-none"></textarea>
+            <div class="group flex flex-col-reverse">
+              <textarea 
+                id="msg" name="briefing" required rows="4" placeholder="Briefly describe your goals or system requirements..." 
+                class="peer w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white py-2 outline-none font-bold text-lg transition-all resize-none placeholder:text-slate-600 dark:placeholder:text-slate-300"
+              ></textarea>
+              <label for="msg" class="text-[10px] font-black uppercase tracking-widest text-slate-500 peer-focus:text-slate-900 dark:peer-focus:text-white transition-colors">System Briefing</label>
             </div>
 
             <button 
               disabled={status === 'sending'}
-              class="group relative w-full py-6 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black uppercase tracking-[0.4em] text-xs rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-4 overflow-hidden"
+              class="w-full py-6 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black uppercase tracking-[0.5em] text-[11px] rounded-xl hover:bg-black dark:hover:bg-slate-200 hover:-translate-y-1 active:translate-y-0 transition-all shadow-xl shadow-slate-900/10 dark:shadow-none disabled:opacity-50"
             >
-              <span class="relative z-10">{status === 'sending' ? 'Transmitting...' : 'Send Inquiry'}</span>
-              {#if status !== 'sending'}
-                <span class="text-xl group-hover:translate-x-2 transition-transform relative z-10">→</span>
-              {/if}
+              {status === 'sending' ? 'Transmitting...' : 'Initiate Inquiry'}
             </button>
+
+            <footer class="pt-8 md:pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-x-12 gap-y-6">
+              <div>
+                <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">WhatsApp</p>
+                <a href="https://wa.me/15087627639" class="text-sm font-bold hover:text-slate-500 transition-colors">+1 508 762 7639</a>
+              </div>
+              <div>
+                <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Direct</p>
+                <a href="mailto:luis.aptx@gmail.com" class="text-sm font-bold hover:text-slate-500 transition-colors">luis.aptx@gmail.com</a>
+              </div>
+            </footer>
           </form>
-        </div>
-
-        <footer class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 md:grid-cols-3 gap-8">
-          <div>
-            <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">WhatsApp</p>
-            <p class="text-sm font-bold">+1 508 762 7639</p>
-          </div>
-          <div>
-            <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Direct Email</p>
-            <p class="text-sm font-bold">luis.aptx@gmail.com</p>
-          </div>
-          <div class="hidden md:block">
-            <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Status</p>
-            <p class="text-sm font-bold">Available</p>
-          </div>
-        </footer>
-      {/if}
+        {/if}
+      </div>
     </main>
-
   </div>
-</div>
+</section>
+
+<style>
+  :global(body) {
+    @apply antialiased;
+  }
+</style>
