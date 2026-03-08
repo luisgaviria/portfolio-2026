@@ -74,10 +74,23 @@ const services = defineCollection({
   }),
 });
 
+const capabilities = defineCollection({
+  type: "data",
+  schema: z.object({
+    capabilities: z.array(
+      z.object({
+        category: z.string(),
+        items: z.array(z.string()),
+      })
+    ),
+  }),
+});
+
 export const collections = {
   hero,
   projects,
   experience,
   cta,
   services,
+  capabilities,
 };

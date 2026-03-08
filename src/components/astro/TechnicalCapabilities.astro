@@ -1,22 +1,8 @@
 ---
-const capabilities = [
-  {
-    category: "Backend",
-    items: ["Go", "Gin Framework", "REST APIs", "Microservices"]
-  },
-  {
-    category: "Frontend",
-    items: ["Svelte / SvelteKit", "Astro", "Tailwind CSS", "TypeScript"]
-  },
-  {
-    category: "CMS & Data",
-    items: ["Drupal", "Headless Architecture", "PostgreSQL", "Supabase"]
-  },
-  {
-    category: "Operations",
-    items: ["Docker", "CI/CD Pipelines", "Linux Server Mgmt", "Vercel / Fly.io"]
-  }
-];
+import { getEntry } from 'astro:content';
+
+const capabilitiesData = await getEntry('capabilities', 'home');
+const { capabilities } = capabilitiesData.data;
 ---
 
 <section class="py-20 border-t border-slate-100 dark:border-slate-900">

@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "category": "Backend",
+      "items": ["Go", "Gin Framework", "REST APIs", "Microservices"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["Svelte / SvelteKit", "Astro", "Tailwind CSS", "TypeScript"]
+    },
+    {
+      "category": "CMS & Data",
+      "items": ["Drupal", "Headless Architecture", "PostgreSQL", "Supabase"]
+    },
+    {
+      "category": "Operations",
+      "items": ["Docker", "CI/CD Pipelines", "Linux Server Mgmt", "Vercel / Fly.io"]
+    }
+  ]
+}
