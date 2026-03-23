@@ -1,6 +1,16 @@
 {
   "featured": [
     {
+      "title": "Auction & Company",
+      "url": "/projects",
+      "projectUrl": "https://www.auctionandcompany.com",
+      "github": "https://github.com/luisgaviria/auctions",
+      "metricsImage": "/images/auction&company-metrics.jpg",
+      "desc": "Architected a distributed Go scraping engine that aggregates real estate data from 12+ legacy providers. Implemented a dual-layer resilience strategy using Cloudflare Browser Rendering and Gemini 2.5 Flash for automated data recovery.",
+      "tech": ["Go", "Astro 6", "Svelte 5", "MapLibre", "Supabase"],
+      "role": "Lead Systems Architect"
+    },
+    {
       "title": "ChefPaws",
       "url": "/projects",
       "projectUrl": "https://chefpaws-frontend-production.up.railway.app/",
