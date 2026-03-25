@@ -5,7 +5,7 @@ import Hero from '../components/astro/Hero.astro'
 import ProjectGrid from '../components/astro/ProjectGrid.astro'
 import Experience from '../components/svelte/Experience.svelte'
 import Services from '../components/svelte/ServiceScope.svelte'
-import CTA from '../components/svelte/CTA.svelte'
+import CTA from '../components/astro/CTA.astro'
 
 const projectEntry = await getEntry('projects', 'home');
 const projects = projectEntry ? projectEntry.data.featured : [];
@@ -28,5 +28,5 @@ const servicesList = servicesData ? servicesData.data.services : [];
   
   <Services services={servicesList} client:visible />
 
-  <CTA data={ctaData} client:visible /> 
+  <CTA data={ctaData} /> 
 </Layout>
