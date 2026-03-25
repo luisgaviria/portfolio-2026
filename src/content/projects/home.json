@@ -2,40 +2,49 @@
   "featured": [
     {
       "title": "Auction & Company",
-      "url": "/projects",
+      "url": "/projects/auction-and-company",
       "projectUrl": "https://www.auctionandcompany.com",
       "github": "https://github.com/luisgaviria/auctions",
       "metricsImage": "/images/auction&company-metrics.jpg",
-      "desc": "Architected a distributed Go scraping engine that aggregates real estate data from 12+ legacy providers. Implemented a dual-layer resilience strategy using Cloudflare Browser Rendering and Gemini 2.5 Flash for automated data recovery.",
+      "role": "Lead Systems Architect",
       "tech": ["Go", "Astro 6", "Svelte 5", "MapLibre", "Supabase"],
-      "role": "Lead Systems Architect"
+      "focus": "Automated real estate data aggregation and AI-driven pipeline resilience.",
+      "summary": "Architected a distributed Go scraping engine to aggregate real estate assets from 12+ legacy providers. Engineered a dual-layer resilience strategy using Cloudflare Browser Rendering for stealth and Gemini 2.5 Flash for automated recovery of unstructured data. Integrated MapLibre for high-performance geospatial visualization of auction properties.",
+      "desc": "Architected a distributed Go scraping engine that aggregates real estate data from 12+ legacy providers. Implemented a dual-layer resilience strategy using Cloudflare Browser Rendering and Gemini 2.5 Flash for automated data recovery."
     },
     {
       "title": "ChefPaws",
-      "url": "/projects",
+      "url": "/projects/chefpaws",
       "projectUrl": "https://chefpaws-frontend-production.up.railway.app/",
       "github": "https://github.com/luisgaviria/chefpaws-frontend",
       "metricsImage": "/images/chefpaws-metrics.jpg",
-      "desc": "Engineered an enterprise-grade Decoupled CMS architecture achieving 100/100 Lighthouse performance. Orchestrated a Headless Drupal 11 backend with a Go-based logic layer and an Astro/Svelte frontend.",
+      "role": "Lead Systems Architect",
       "tech": ["Drupal 11", "Go", "Astro", "Svelte", "Cloudflare R2"],
-      "role": "Lead Systems Architect"
+      "focus": "High-performance headless e-commerce and decoupled CMS architecture.",
+      "summary": "Engineered a decoupled e-commerce platform achieving 100/100 Lighthouse performance. Orchestrated a Headless Drupal 11 backend for content management, a Go-based middleware layer for business logic, and an Astro 6/Svelte 5 frontend. Leveraged Cloudflare R2 for distributed asset storage and optimized static site generation for sub-second page loads.",
+      "desc": "Engineered an enterprise-grade Decoupled CMS architecture achieving 100/100 Lighthouse performance. Orchestrated a Headless Drupal 11 backend with a Go-based logic layer and an Astro/Svelte frontend."
     },
     {
       "title": "Harmony Homes",
-      "url": "/projects",
+      "url": "/projects/harmony-homes",
       "projectUrl": "https://www.bostonharmonyhomes.com",
-      "desc": "Architected a high-concurrency MLS data engine. Optimized search performance and data hydration workflows using Prisma and real-time API polling.",
+      "role": "Lead Systems Architect",
       "tech": ["Next.js", "Prisma", "PostgreSQL", "BridgeAPI"],
-      "role": "Lead Systems Architect"
+      "focus": "Performance-first MLS integration and low-latency property search.",
+      "summary": "Architected a high-concurrency data engine to sync real-time MLS listings via BridgeAPI. Optimized data hydration workflows with Prisma and PostgreSQL to ensure sub-second search responses. Developed automated polling services to maintain listing accuracy and inventory parity across the platform.",
+      "desc": "Architected a high-concurrency MLS data engine. Optimized search performance and data hydration workflows using Prisma and real-time API polling."
     },
+
     {
       "title": "Harwood Houses",
-      "url": "/projects",
+      "url": "/projects/harwood-houses",
       "projectUrl": "https://www.harwoodhouses.com",
       "metricsImage": "/images/harwoodhouses.png",
-      "desc": "Led the digital overhaul of recovery housing operations. Replaced manual bottlenecks with a reactive Svelte application, ensuring high data integrity and automated intake.",
+      "role": "Senior Full-Stack Developer",
       "tech": ["SvelteKit", "Tailwind CSS", "Go", "PostgreSQL"],
-      "role": "Senior Full-Stack Developer"
+      "focus": "Automating recovery housing operations and digitizing manual intake workflows.",
+      "summary": "Led the digital transformation of recovery housing management by replacing manual, paper-based processes with a reactive SvelteKit application. Engineered a Go-powered backend to handle sensitive resident data with high integrity and implemented automated intake workflows to reduce administrative overhead and bottle-necks.",
+      "desc": "Led the digital overhaul of recovery housing operations. Replaced manual bottlenecks with a reactive Svelte application, ensuring high data integrity and automated intake."
     }
   ]
 }

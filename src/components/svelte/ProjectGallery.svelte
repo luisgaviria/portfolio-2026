@@ -140,7 +140,7 @@
         <div class="lg:col-span-8 space-y-12">
           <div class="prose prose-xl dark:prose-invert prose-slate max-w-none">
             <p class="text-xl leading-relaxed text-slate-600 dark:text-slate-400 text-left">
-              {selectedProject.desc}
+              {selectedProject.summary}
             </p>
           </div>
 
@@ -151,7 +151,7 @@
             </div>
             <div class="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-slate-200 dark:border-slate-800">
               <h4 class="font-black uppercase tracking-widest text-[10px] text-slate-500 dark:text-slate-400 mb-4 text-left">Focus</h4>
-              <p class="text-slate-900 dark:text-white font-bold text-left">Performance-first indexing and responsive UI/UX design.</p>
+              <p class="text-slate-900 dark:text-white font-bold text-left">{selectedProject.focus}</p>
             </div>
           </div>
 
