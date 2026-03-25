@@ -32,6 +32,7 @@
       "title": "Harwood Houses",
       "url": "/projects",
       "projectUrl": "https://www.harwoodhouses.com",
+      "metricsImage": "/images/harwoodhouses.png",
       "desc": "Led the digital overhaul of recovery housing operations. Replaced manual bottlenecks with a reactive Svelte application, ensuring high data integrity and automated intake.",
       "tech": ["SvelteKit", "Tailwind CSS", "Go", "PostgreSQL"],
       "role": "Senior Full-Stack Developer"
